@@ -4,8 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/basyura/go-inkdrop/client"
-	. "github.com/basyura/go-inkdrop/inkdrop"
+	"github.com/basyura/go-inkdrop"
 )
 
 func main() {
@@ -13,7 +12,7 @@ func main() {
 	fmt.Println("*    go-inkdrop    *")
 	fmt.Println("********************")
 
-	note, err := client.Get[Note](client.Parameter{
+	note, err := inkdrop.Get[inkdrop.Note](inkdrop.Parameter{
 		"docid": "note:cacpQeu6G",
 	})
 	if err != nil {
@@ -22,17 +21,17 @@ func main() {
 	}
 	printJson(note)
 
-	notes, _ := client.Get[Notes](client.Parameter{
+	notes, _ := inkdrop.Get[inkdrop.Notes](inkdrop.Parameter{
 		"sort":    "title",
 		"keyword": "inkdrop",
 	})
 	printJson(len(notes))
 	printJson(notes[0])
 
-	books, _ := client.Get[Books](client.Parameter{})
+	books, _ := inkdrop.Get[inkdrop.Books](inkdrop.Parameter{})
 	printJson(books[0])
 
-	tags, _ := client.Get[Tags](client.Parameter{})
+	tags, _ := inkdrop.Get[inkdrop.Tags](inkdrop.Parameter{})
 	printJson(tags[0])
 }
 

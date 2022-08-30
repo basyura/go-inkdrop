@@ -1,4 +1,4 @@
-package config
+package inkdrop
 
 import (
 	"bufio"
@@ -18,7 +18,7 @@ type Config struct {
 
 var conf *Config
 
-func Instance() (*Config, error) {
+func ConfigInstance() (*Config, error) {
 	if conf != nil {
 		return conf, nil
 	}

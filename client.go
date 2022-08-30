@@ -1,10 +1,8 @@
-package client
+package inkdrop
 
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/basyura/go-inkdrop/config"
-	"github.com/basyura/go-inkdrop/inkdrop"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -20,7 +18,7 @@ func Get[T any](param Parameter) (T, error) {
 		return none, fmt.Errorf("failed convert type to path : %T", none)
 	}
 
-	conf, err := config.Instance()
+	conf, err := ConfigInstance()
 	if err != nil {
 		return none, err
 	}
@@ -75,16 +73,16 @@ func Get[T any](param Parameter) (T, error) {
 }
 
 func toPath[T any](t T) string {
-	if _, ok := any(t).(inkdrop.Notes); ok {
+	if _, ok := any(t).(Notes); ok {
 		return "notes"
 	}
-	if _, ok := any(t).(inkdrop.Note); ok {
+	if _, ok := any(t).(Note); ok {
 		return "note"
 	}
-	if _, ok := any(t).(inkdrop.Books); ok {
+	if _, ok := any(t).(Books); ok {
 		return "books"
 	}
-	if _, ok := any(t).(inkdrop.Tags); ok {
+	if _, ok := any(t).(Tags); ok {
 		return "tags"
 	}
 
