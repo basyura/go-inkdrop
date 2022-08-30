@@ -7,8 +7,8 @@
 package main
 
 import (
-  "go-inkdrop/client"
-  . "go-inkdrop/inkdrop"
+	"github.com/basyura/go-inkdrop/client"
+	. "github.com/basyura/go-inkdrop/inkdrop"
 )
 
 func main() {

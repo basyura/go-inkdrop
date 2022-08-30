@@ -3,8 +3,9 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"go-inkdrop/client"
-	. "go-inkdrop/inkdrop"
+
+	"github.com/basyura/go-inkdrop/client"
+	. "github.com/basyura/go-inkdrop/inkdrop"
 )
 
 func main() {
